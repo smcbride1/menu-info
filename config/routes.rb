@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :menu_types
-  resources :reviews
   resources :tags
   resources :menu_items
   resources :menus
