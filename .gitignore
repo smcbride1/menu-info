@@ -36,6 +36,9 @@
 # Ignore session secret key base file.
 /config/credentials.yml.enc
 
+# Ignore notes.
+/notes.txt
+
 /public/packs
 /public/packs-test
 /node_modules

@@ -3,5 +3,6 @@ module ApplicationHelper
         User.find(session[:user][:id])
     end
     def logged_in
+        current_user
     end
 end
