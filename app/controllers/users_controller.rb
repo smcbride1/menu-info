@@ -14,11 +14,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = current_user
     end
 
     def edit
-        @user = current_user
     end
 
     def update
@@ -27,7 +25,6 @@ class UsersController < ApplicationController
     end
 
     def destroy
-
     end
 
     def user_params
@@ -37,6 +34,6 @@ class UsersController < ApplicationController
     private
 
     def check_authorization
-        return redirect_to "/" if params[:user][:id] != current_user.id
+        return redirect_to "/" if params[:user][:id] != User.find(session[:user_id])
     end
 end
