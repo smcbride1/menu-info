@@ -1,0 +1,8 @@
+<h1>Login</h1>
+<%= form_tag "/sessions" %>
+    <%= label_tag :email, "email" %>
+    <%= text_field_tag :email, "email" %>
+    <%= label_tag :password, "password" %>
+    <%= text_field_tag :password, "password" %>
+    <%= submit_tag "Login" %>
+<% end %>
