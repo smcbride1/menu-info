@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :check_authorization, only: [:update, :destroy]
 
     def new
+        @user = User.new
     end
 
     def create
@@ -13,9 +14,11 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = current_user
     end
 
     def edit
+        @user = current_user
     end
 
     def update
