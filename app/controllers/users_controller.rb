@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :check_authorization, only: [:update, :destroy]
+
     def new
     end
 
@@ -22,9 +24,16 @@ class UsersController < ApplicationController
     end
 
     def destroy
+
     end
 
     def user_params
         params.require(:user).permit(:email, :name, :password)
+    end
+
+    private
+
+    def check_authorization
+        return redirect_to "/" if params[:user][:id] != current_user.id
     end
 end
