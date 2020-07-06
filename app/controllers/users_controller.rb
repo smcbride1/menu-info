@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        return redirect_to new_user_path if !@user.valid?
+        return render :new if !@user.valid?
         @user.save
         session[:user_id] = @user.id
         redirect_to new_restaurant_path

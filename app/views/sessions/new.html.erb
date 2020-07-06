@@ -1,4 +1,10 @@
 <h1>Login</h1>
+<%= if flash[:warning] %>
+    <div id="error_explanation">
+        <h2><%= flash[:warning] %></h2>
+    </div>
+<% end %>
+
 <%= form_tag "/login" do %>
     <%= label_tag :email, "Email" %>
     <br>
