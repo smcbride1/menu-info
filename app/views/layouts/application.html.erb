@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MenuInfo</title>
+    <title>Menu Info</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <header>
+      <img class="logo" src="<%= asset_path('images/logo.png') %>" alt="logo">
+      <nav>
+        <ul class="nav__links"
+          <li><a href="/restaurants">RESTAURANTS</a></li>
+          <li><a href="/menus">MENUS</a></li>
+          <li><a href="/menu_items">MENU ITEMS</a></li>
+        </ul>
+      </nav>
+      <% if logged_in? %>
+        <a class="button_small" href="/logout"><button>Log Out</button></a>
+      <% else %>
+        <a class="button_small" href="/login"><button>Login</button></a>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
