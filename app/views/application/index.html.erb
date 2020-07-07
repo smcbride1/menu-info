@@ -1,5 +1,26 @@
-<h1>Menu Info</h1>
-<h2>Create detailed menus that can be shared easily</h2>
-<h3>Create now</h3>
-<a href="/login"><button>Login</button></a>
-<a href="/register"><button>Register</button></a>
+<h1>FIND MENUS</h1>
+<h2>Discover menus and menu items of any category</h2>
+<h2>Easily find lifestyle and allergy friendly items</h2>
+
+<br>
+
+<div class="wrapper">
+    <%= form_tag "/", method: :get %>
+    <% placeholder = ["Find Gluten-free Dishes...", "Find Vegan Dishes...", "Find Drink Menus...", "Find Dessert Menus...", "Find Top Restaurants..."].sample %>
+    <%= text_field_tag :query, nil, placeholder: placeholder %>
+    <%= submit_tag "Search" %>
+</div>
+
+<br>
+<br>
+
+<h1>CREATE MENUS</h1>
+<h2>Create detailed menus designed for the web</h2>
+<h2>Share with customers easily</h2>
+
+<br>
+
+<div class="wrapper">
+    <a href="/login"><button>Login</button></a>
+    <a href="/register"><button>Register</button></a>
+</div>

@@ -11,20 +11,34 @@
 
   <body>
     <header>
-      <img class="logo" src="<%= asset_path('images/logo.png') %>" alt="logo">
+      <a href="/"><img class="logo" src="<%= image_path('logo.png') %>" alt="logo"></a>
       <nav>
-        <ul class="nav__links"
+        <ul class="nav__links">
           <li><a href="/restaurants">RESTAURANTS</a></li>
+          <li>|</li>
           <li><a href="/menus">MENUS</a></li>
+          <li>|</li>
           <li><a href="/menu_items">MENU ITEMS</a></li>
         </ul>
       </nav>
       <% if logged_in? %>
-        <a class="button_small" href="/logout"><button>Log Out</button></a>
+        <%= form_tag "/logout" %>
+        <%= submit_tag "Logout" %>
       <% else %>
         <a class="button_small" href="/login"><button>Login</button></a>
       <% end %>
     </header>
+    <br>
+    <br>
     <%= yield %>
+    <footer>
+      <ul>
+        <li><a href="/about">ABOUT</a></li>
+        <li>|</li>
+        <li>Copyright 2020</li>
+        <li>|</li>
+        <li>Made with ❤ by Stephen McBride</li>
+      </ul>
+    </footer>
   </body>
 </html>
