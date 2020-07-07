@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :check_authorization, only: [:update, :destroy]
+    before_action :check_authorization, only: [:update, :destroy, :show]
 
     def new
         @user = User.new
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        @user = User.find(params[:id])
     end
 
     def edit
@@ -34,6 +35,9 @@ class UsersController < ApplicationController
     private
 
     def check_authorization
-        return redirect_to "/" if params[:user][:id] != User.find(session[:user_id])
+        if !session.has_key?("user_id") || params[:id] != session[:user_id].to_s
+            flash[:warning] = "You are not authorized to view this page."
+            return redirect_to login_path
+        end
     end
 end
