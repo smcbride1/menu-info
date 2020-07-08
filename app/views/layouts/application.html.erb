@@ -14,11 +14,19 @@
       <a href="/"><img class="logo" src="<%= image_path('logo.png') %>" alt="logo"></a>
       <nav>
         <ul class="nav__links">
-          <li><a href="/restaurants">RESTAURANTS</a></li>
-          <li>|</li>
-          <li><a href="/menus">MENUS</a></li>
-          <li>|</li>
-          <li><a href="/menu_items">MENU ITEMS</a></li>
+          <% if logged_in? %>
+            <li><%= link_to "My RESTAURANTS", user_restaurants_path(current_user) %></li>
+            <li>|</li>
+            <li><%= link_to "My MENUS", user_menus_path(current_user) %></li>
+            <li>|</li>
+            <li><%= link_to "My ACCOUNT", user_path(current_user) %></li>
+          <% else %>
+            <li><%= link_to "RESTAURANTS", restaurants_path %></li>
+            <li>|</li>
+            <li><%= link_to "MENUS", menus_path %></li>
+            <li>|</li>
+            <li><%= link_to "MENU ITEMS", menu_items_path %></li>
+          <% end %>
         </ul>
       </nav>
       <% if logged_in? %>
