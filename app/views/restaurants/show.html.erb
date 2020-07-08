@@ -2,15 +2,15 @@
 <% if @restaurant.user == current_user %>
     <div class="wrapper">
         <a href="<%= edit_restaurant_path(@restaurant) %>"><button>Edit</button></a>
-        <%= form_tag method: :destroy do %>
-            <%= submit_tag "Delete" %>
+        <%= form_for @restaurant, html: { method: :delete } do |f| %>
+            <%= f.submit "Delete" %>
         <% end %>
     </div>
 <% end %>
 <h2><%= @restaurant.description %></h2>
-<h2><%= @restaurant.website %></h2>
-<h2><%= @restaurant.phone_number %></h2>
-<h2><%= @restaurant.address %></h2>
+<h2>🔗 <%= link_to @restaurant.website, "https://#{@restaurant.website}", target: :_blank %></h2>
+<h2>📞 <%= link_to @restaurant.phone_number, "tel:#{@restaurant.phone_number}" %></h2>
+<h2>📍 <%= link_to @restaurant.address, "https://maps.google.com/?q=#{@restaurant.address}", target: :_blank %></h2>
 
 <% if @restaurant.menus.any? %>
     <% @restaurant.menus.each do |menu| %>
