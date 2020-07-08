@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+    #before_action :authorize?, only: [:create, :edit, :update, :destroy]
 
     def new
         return redirect_to "/login" if !helpers.logged_in?
@@ -13,7 +14,7 @@ class MenusController < ApplicationController
             return render :new
         else
             @menu.save
-            redirect_to restaurant_path(@menu)
+            redirect_to menu_path(@menu)
         end
     end
 
@@ -47,6 +48,10 @@ class MenusController < ApplicationController
     end
 
     def destroy
+        @menu = Menu.find(params[:id])
+        authorize?(@menu.restaurant.user_id)
+        @menu.destroy
+        redirect_to menus_path
     end
 
     def menu_params
