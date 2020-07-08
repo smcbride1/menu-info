@@ -12,12 +12,12 @@ Rails.application.routes.draw do
 
   resources :menus
   resources :menus do
-    resources :menu_items, only: [:index]
+    resources :menu_items, only: [:index, :new]
   end
 
   resources :restaurants
   resources :restaurants do
-    resources :menus, only: [:index]
+    resources :menus, only: [:index, :new]
   end
 
   resources :users, except: [:index]

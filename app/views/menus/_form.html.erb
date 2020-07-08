@@ -1,0 +1,28 @@
+<% if @menu.errors.any? %>
+    <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+            <% @menu.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @menu do |f| %>
+    <div class="field <%= " field_with_errors" if @menu.errors[:name].any? %>">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name %>
+    </div>
+    <div class="field <%= " field_with_errors" if @menu.errors[:description].any? %>">
+        <%= f.label :description, "Description" %>
+        <%= f.text_field :description %>
+    </div>
+    <% if !params.has_key?(:restaurant_id) %>
+        <div class="field <%= " field_with_errors" if @menu.errors[:restaurant_id].any? %>">
+        <%= f.label :restaurant_id, "Restaurant" %>
+        <%= f.collection_select :restaurant_id, @menu.restaurant.user.restaurants, :id, :name, prompt: true %>
+        </div>
+    <% end %>
+    <%= f.submit "Submit" %>
+<% end %>

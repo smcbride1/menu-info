@@ -1,19 +1,37 @@
 <h1><%= @restaurant.name %></h1>
+
 <% if @restaurant.user == current_user %>
+    <br>
     <div class="wrapper">
         <a href="<%= edit_restaurant_path(@restaurant) %>"><button>Edit</button></a>
         <%= form_for @restaurant, html: { method: :delete } do |f| %>
             <%= f.submit "Delete" %>
         <% end %>
     </div>
+    <br>
 <% end %>
+
 <h2><%= @restaurant.description %></h2>
 <h2>🔗 <%= link_to @restaurant.website, "https://#{@restaurant.website}", target: :_blank %></h2>
 <h2>📞 <%= link_to @restaurant.phone_number, "tel:#{@restaurant.phone_number}" %></h2>
 <h2>📍 <%= link_to @restaurant.address, "https://maps.google.com/?q=#{@restaurant.address}", target: :_blank %></h2>
 
-<% if @restaurant.menus.any? %>
-    <% @restaurant.menus.each do |menu| %>
-        <h1><%= menu.name %></h1>
+<br>
+<h1><%= link_to "Menus", restaurant_menus_path(@restaurant) %></h1>
+
+<% if @restaurant.user == current_user %>
+    <br>
+    <div class="wrapper">
+        <a href="<%= new_restaurant_menu_path(@restaurant) %>"><button>New Menu</button></a>
+    </div>
+    
+    <br>
+    <% if @restaurant.menus.any? %>
+        <% @restaurant.menus.each do |menu| %>
+            <h1><%= link_to menu.name, menu %></h1>
+            <h2><%= truncate(menu.description, length: 20) %></h2>
+        <% end %>
+    <% else %>
+        <h2>There are currently no menus.</h2>
     <% end %>
 <% end %>

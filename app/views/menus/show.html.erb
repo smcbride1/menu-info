@@ -1,0 +1,35 @@
+<h1><%= @menu.name %></h1>
+
+<% if @menu.restaurant.user == current_user %>
+    <br>
+    <div class="wrapper">
+        <a href="<%= edit_menu_path(@menu) %>"><button>Edit</button></a>
+        <%= form_for @menu, html: { method: :delete } do |f| %>
+            <%= f.submit "Delete" %>
+        <% end %>
+    </div>
+    <br>
+<% end %>
+
+<h2><%= @menu.description %></h2>
+<h2><%= link_to @menu.restaurant.name, @menu.restaurant %></h2>
+
+<br>
+<h1><%= link_to "Menu Items", menu_menu_items_path(@menu) %></h1>
+
+<% if @menu.restaurant.user == current_user %>
+    <br>
+    <div class="wrapper">
+        <a href="<%= new_menu_menu_item_path(@menu) %>"><button>New Menu Item</button></a>
+    </div>
+    
+    <br>
+    <% if @menu.menu_items.any? %>
+        <% @menu_items.each do |menu_item| %>
+            <h1><%= link_to menu_item.name, menu_item %></h1>
+            <h2><%= truncate(menu_item.description, length: 20) %></h2>
+        <% end %>
+    <% else %>
+        <h2>There are currently no menu items.</h2>
+    <% end %>
+<% end %>
