@@ -12,6 +12,17 @@ class RestaurantsController < ApplicationController
         redirect_to restaurant_path(@restaurant)
     end
 
+    def index
+        if params.has_key?(:user)
+            @restaurants = Restaurant.where(user_id: params[:user][:id])
+        else
+            @restaurants = Restaurant.all
+        end
+    end
+
+    def show
+    end
+
     def restaurant_params
         params.require(:restaurant).permit(:name, :description, :website, :phone_number, :address)
     end

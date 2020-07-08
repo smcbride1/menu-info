@@ -30,8 +30,9 @@
         </ul>
       </nav>
       <% if logged_in? %>
-        <%= form_tag "/logout" %>
-        <%= submit_tag "Logout" %>
+        <%= form_tag "/logout" do %>
+          <%= submit_tag "Logout" %>
+        <% end %>
       <% else %>
         <a class="button_small" href="/login"><button>Login</button></a>
       <% end %>
