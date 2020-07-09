@@ -48,7 +48,7 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find(params[:id])
         authorize?(@restaurant.user_id)
         @restaurant.destroy
-        redirect_to restaurants_path
+        redirect_to user_restaurants_path(@restaurant.user)
     end
 
     def restaurant_params

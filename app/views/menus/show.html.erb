@@ -25,8 +25,9 @@
     
     <br>
     <% if @menu.menu_items.any? %>
-        <% @menu_items.each do |menu_item| %>
+        <% @menu.menu_items.each do |menu_item| %>
             <h1><%= link_to menu_item.name, menu_item %></h1>
+            <h1><%= "$#{menu_item.price}" %></h1>
             <h2><%= truncate(menu_item.description, length: 20) %></h2>
         <% end %>
     <% else %>

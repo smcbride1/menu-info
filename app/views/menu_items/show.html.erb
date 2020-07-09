@@ -1,0 +1,17 @@
+<h1><%= @menu_item.name %></h1>
+
+<% if @menu_item.menu.restaurant.user == current_user %>
+    <br>
+    <div class="wrapper">
+        <a href="<%= edit_menu_item_path(@menu_item) %>"><button>Edit</button></a>
+        <%= form_for @menu_item, html: { method: :delete } do |f| %>
+            <%= f.submit "Delete" %>
+        <% end %>
+    </div>
+    <br>
+<% end %>
+
+<h2><%= "$#{@menu_item.price}" %></h2>
+<h2><%= @menu_item.description %></h2>
+<h2><%= link_to @menu_item.menu.name, @menu_item.menu %></h2>
+<h2><%= link_to @menu_item.menu.restaurant.name, @menu_item.menu.restaurant %></h2>
