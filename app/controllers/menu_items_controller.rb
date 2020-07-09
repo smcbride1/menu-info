@@ -41,6 +41,7 @@ class MenuItemsController < ApplicationController
     def update
         @menu_item = MenuItem.find(params[:id])
         authorize?(@menu_item.menu.restaurant.user_id)
+        byebug
         if !@menu_item.update(menu_item_params)
             return render :edit
         else
@@ -56,6 +57,6 @@ class MenuItemsController < ApplicationController
     end
 
     def menu_item_params
-        params.require(:menu_item).permit(:name, :price, :description, :menu_id)
+        params.require(:menu_item).permit(:name, :price, :description, :menu_id, tag_ids: [])
     end
 end

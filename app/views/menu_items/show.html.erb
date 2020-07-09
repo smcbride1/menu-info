@@ -11,6 +11,9 @@
     <br>
 <% end %>
 
+<% @menu_item.tags.each do |tag| %>
+    <h2><%= link_to tag.name, tag %></h2>
+<% end %>
 <h2><%= "$#{@menu_item.price}" %></h2>
 <h2><%= @menu_item.description %></h2>
 <h2><%= link_to @menu_item.menu.name, @menu_item.menu %></h2>

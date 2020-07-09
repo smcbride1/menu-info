@@ -22,6 +22,15 @@
         <%= f.label :description, "Description" %>
         <%= f.text_field :description %>
     </div>
+    <div class="field <%= " field_with_errors" if @menu_item.errors[:tags].any? %>">
+        <%= f.label :description, "Tags" %>
+        <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |b| %>
+            <div class="collection-check-box">
+                <%= b.check_box %>
+                <%= b.label %>
+            </div>
+        <% end %>
+    </div>
     <div class="field <%= " field_with_errors" if @menu_item.errors[:menu_id].any? %>">
         <% if !params.has_key?(:menu_id) %>
             <div class="field <%= " field_with_errors" if @menu_item.errors[:menu_id].any? %>">
