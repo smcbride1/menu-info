@@ -6,6 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#Tags
+Tag.find_or_create_by(name: "Dairy Free")
+Tag.find_or_create_by(name: "Egg Free")
+Tag.find_or_create_by(name: "Fish Free")
+Tag.find_or_create_by(name: "Shellfish Free")
+Tag.find_or_create_by(name: "Tree Nut Free")
+Tag.find_or_create_by(name: "Peanut Free")
+Tag.find_or_create_by(name: "Wheat Free")
+Tag.find_or_create_by(name: "Soy Free")
+Tag.find_or_create_by(name: "Gluten Free")
+Tag.find_or_create_by(name: "Vegan")
+Tag.find_or_create_by(name: "Vegetarian")
+Tag.find_or_create_by(name: "Pescatarian")
+Tag.find_or_create_by(name: "Pollotarian")
+Tag.find_or_create_by(name: "Kosher")
+Tag.find_or_create_by(name: "Halal")
+
 #Users
 User.find_or_create_by(email: "stevemcbride3@gmail.com", name: "Stephen McBride", password: "test")
 User.find_or_create_by(email: "adrian88@example.com", name: "Adrian Kaufman", password: "daylight pound darwinism upscale")

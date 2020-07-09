@@ -48,6 +48,13 @@ class MenuItemsController < ApplicationController
         end
     end
 
+    def destroy
+        @menu_item = MenuItem.find(params[:id])
+        authorize?(@menu_item.menu.restaurant.user_id)
+        @menu_item.destroy
+        redirect_to user_menu_items_path(@menu_item.menu.restaurant.user)
+    end
+
     def menu_item_params
         params.require(:menu_item).permit(:name, :price, :description, :menu_id)
     end

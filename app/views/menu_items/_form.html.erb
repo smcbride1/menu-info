@@ -25,7 +25,7 @@
     <% if !params.has_key?(:menu_id) %>
         <div class="field <%= " field_with_errors" if @menu_item.errors[:menu_id].any? %>">
         <%= f.label :menu_id, "Menu" %>
-        <%= f.collection_select :menu_id, @menu_item.menu.restaurant.user.menus, :id, :name, prompt: true %>
+        <%= f.collection_select :menu_id, current_user.menus, :id, :name, prompt: true %>
         </div>
     <% else %>
         <input type="hidden" name="menu_id" value="<%= params[:menu_id] %>">
