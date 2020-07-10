@@ -9,26 +9,34 @@
     </div>
 <% end %>
 
-<%= form_for @restaurant do |f| %>
-    <div class="field <%= " field_with_errors" if @restaurant.errors[:name].any? %>">
-        <%= f.label :name, "Name" %>
-        <%= f.text_field :name %>
-    </div>
-    <div class="field <%= " field_with_errors" if @restaurant.errors[:description].any? %>">
-        <%= f.label :description, "Description" %>
-        <%= f.text_field :description %>
-    </div>
-    <div class="field <%= " field_with_errors" if @restaurant.errors[:website].any? %>">
-        <%= f.label :website, "Website" %>
-        <%= f.text_field :website %>
-    </div>
-    <div class="field <%= " field_with_errors" if @restaurant.errors[:phone_number].any? %>">
-        <%= f.label :phone_number, "Phone Number" %>
-        <%= f.text_field :phone_number %>
-    </div>
-    <div class="field <%= " field_with_errors" if @restaurant.errors[:address].any? %>">
-        <%= f.label :address, "Address" %>
-        <%= f.text_field :address %>
-    </div>
-    <%= f.submit "Submit" %>
-<% end %>
+<div class="form">
+    <%= form_for @restaurant do |f| %>
+        <div class="field <%= " field_with_errors" if @restaurant.errors[:name].any? %>">
+            <%= f.label :name, "Name" %>
+            <br>
+            <%= f.text_field :name %>
+        </div>
+        <div class="field <%= " field_with_errors" if @restaurant.errors[:description].any? %>">
+            <%= f.label :description, "Description" %>
+            <br>
+            <%= f.text_field :description %>
+        </div>
+        <div class="field <%= " field_with_errors" if @restaurant.errors[:website].any? %>">
+            <%= f.label :website, "Website" %>
+            <br>
+            <%= f.text_field :website %>
+        </div>
+        <div class="field <%= " field_with_errors" if @restaurant.errors[:phone_number].any? %>">
+            <%= f.label :phone_number, "Phone Number" %>
+            <br>
+            <%= f.text_field :phone_number %>
+        </div>
+        <div class="field <%= " field_with_errors" if @restaurant.errors[:address].any? %>">
+            <%= f.label :address, "Address" %>
+            <br>
+            <%= f.text_field :address %>
+        </div>
+        <br>
+        <%= f.submit "Submit" %>
+    <% end %>
+</div>

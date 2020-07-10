@@ -69,6 +69,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    border-bottom: 1px solid #4D4D4D;
  }
 
  h1 {
@@ -95,8 +96,12 @@
     align-self: center;
  }
 
+ input[type=text], input[type=password], select {
+    margin: 8px 0;
+ }
+
  div.wrapper {
-    text-align:center
+    text-align: center;
  }
 
  footer {
@@ -106,7 +111,10 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 10px;
+   padding: 20px;
+   border-top: 1px solid #4D4D4D;
+
+   width: 100%;
  }
 
  footer li {
@@ -120,13 +128,14 @@
  }
 
  hr {
-    width: 100%;
+    width: 80%;
     height: 1px;
     border-width: 0px;
     color: black;
     background-color: black;
-    text-align: center;
     margin: 1em 0;
+    margin-left: auto;
+    margin-right: auto;
  }
 
  div.no-wrap {
@@ -140,4 +149,40 @@
 
  #content-wrap {
     padding-bottom: 4rem;
+ }
+
+ .card {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.3s;
+    width: 40%;
+    overflow: hidden;
+ }
+ 
+ .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+ }
+ 
+ .container {
+    padding: 10px 16px;
+ }
+
+ label {
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    color: #4D4D4D;
+    text-align: center;
+    font-size: 14pt;
+ }
+
+ form {
+    display: inline-block;
+    text-align: left;
+ }
+
+ div.form {
+    display: block;
+    text-align: center;
  }

@@ -10,30 +10,28 @@
     </div>
 <% end %>
 
-<%= form_for @user do |f| %>
-    <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
-        <%= f.label :name, "Name" %>
-        <br>
-        <%= f.text_field :name %>
-    </div>
-    <br><br>
-    <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
-        <%= f.label :email, "Email" %>
-        <br>
-        <%= f.text_field :email %>
-    </div>
-    <br><br>
-    <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
-        <%= f.label :password, "Password" %>
-        <br>
-        <%= f.password_field :password %>
-    </div>
-    <br><br>
-    <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
-        <%= f.label :password_confirmation, "Password Confirmation" %>
-        <br>
-        <%= f.password_field :password_confirmation %>
-    </div>
-    <br><br>
-    <%= f.submit "Register" %>
-<% end %>
+<div class="form">
+    <%= form_for @user do |f| %>
+        <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
+            <%= f.label :name, "Name" %>
+            <br>
+            <%= f.text_field :name %>
+        </div>
+        <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
+            <%= f.label :email, "Email" %>
+            <br>
+            <%= f.text_field :email %>
+        </div>
+        <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
+            <%= f.label :password, "Password" %>
+            <br>
+            <%= f.password_field :password %>
+        </div>
+        <div class="field <%= " field_with_errors" if @user.errors[:name].any? %>">
+            <%= f.label :password_confirmation, "Password Confirmation" %>
+            <br>
+            <%= f.password_field :password_confirmation %>
+        </div>
+        <%= f.submit "Register" %>
+    <% end %>
+</div>

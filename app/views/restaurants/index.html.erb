@@ -6,7 +6,14 @@
     </div>
 <% end %>
 
+<br>
+<div class="wrapper">
 <% @restaurants.each do |restaurant| %>
-    <h1><%= link_to restaurant.name, restaurant %></h1>
-    <h2><%= truncate(restaurant.description, length: 20) %></h2>
+    <div class="card">
+        <div class="container">
+            <h1><%= link_to restaurant.name, restaurant %></h1>
+            <h2><%= truncate(restaurant.description, length: 20) %></h2>
+        </div>
+    </div>
 <% end %>
+</div>
