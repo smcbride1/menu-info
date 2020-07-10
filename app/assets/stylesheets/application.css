@@ -85,10 +85,10 @@
  }
 
  h3 {
-   font-family: "Nunito", sans-serif;
-   font-weight: 400;
-   color: #4D4D4D;
-   text-align: center;
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    color: #4D4D4D;
+    text-align: center;
 }
 
  input[type=text], input[type=password] {
@@ -110,16 +110,16 @@
  }
 
  footer {
-   position: absolute;
-   bottom: 10px;
+    position: absolute;
+    bottom: 10px;
 
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 20px;
-   border-top: 1px solid #4D4D4D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #4D4D4D;
 
-   width: 100%;
+    width: 100%;
  }
 
  footer li {
