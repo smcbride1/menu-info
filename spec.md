@@ -17,12 +17,12 @@ Specs:
     * Menu has_many Tags, through: MenuItemsTags
 
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
-    * MenuItem has_many Tags, through: MenuItemsTags
-    * Tag has_many MenuItems, through: MenuItemsTags
+    * Menu has_many Tags through MenuItems
+    * Tag has_many Menus through MenuItems
 
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
-    * Menu attribute :name, :description
-    * MenuItem attribute :name, :price, :description
+- [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+    * Menu has_many Tags through MenuItems (menu_item.name)
+    * Tag has_many Menus through MenuItems (menu_item.name)
 
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
