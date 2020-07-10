@@ -8,6 +8,13 @@ Rails.application.routes.draw do
     resources :menu_items, only: [:index]
   end
 
+  scope "/menu_items" do
+    get "dollar_menu", to: "menu_items#dollar_menu"
+    get "under_five", to: "menu_items#under_five"
+    get "under_ten", to: "menu_items#under_ten"
+    get "under_twenty", to: "menu_items#under_twenty"
+  end
+
   resources :menu_items
 
   resources :menus

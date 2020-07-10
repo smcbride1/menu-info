@@ -55,6 +55,30 @@ class MenuItemsController < ApplicationController
         redirect_to menu_path(@menu_item.menu)
     end
 
+    def dollar_menu
+        @menu_items = MenuItem.dollar_menu
+        @scope_name = "Dollar Menu"
+        render "scoped"
+    end
+
+    def under_five
+        @menu_items = MenuItem.under_five
+        @scope_name = "Under Five"
+        render "scoped"
+    end
+
+    def under_ten
+        @menu_items = MenuItem.under_ten
+        @scope_name = "Under Ten"
+        render "scoped"
+    end
+
+    def under_twenty
+        @menu_items = MenuItem.under_twenty
+        @scope_name = "Under Twenty"
+        render "scoped"
+    end
+
     def menu_item_params
         params.require(:menu_item).permit(:name, :price, :description, :menu_id, tag_ids: [])
     end
