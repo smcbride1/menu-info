@@ -16,6 +16,11 @@
 <h2>📞 <%= link_to @restaurant.phone_number, "tel:#{@restaurant.phone_number}" %></h2>
 <h2>📍 <%= link_to @restaurant.address, "https://maps.google.com/?q=#{@restaurant.address}", target: :_blank %></h2>
 
+<div class="wrapper">
+    <!-- Google Maps Embed -->
+    <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%= u @restaurant.address %>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+
 <hr>
 
 <h1><%= link_to "Menus", restaurant_menus_path(@restaurant) %></h1>

@@ -132,3 +132,12 @@
  div.no-wrap {
     white-space: nowrap;
  }
+
+ #page-container {
+    position: relative;
+    min-height: 100vh;
+ }
+
+ #content-wrap {
+    padding-bottom: 4rem;
+ }
