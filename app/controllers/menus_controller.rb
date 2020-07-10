@@ -51,7 +51,7 @@ class MenusController < ApplicationController
         @menu = Menu.find(params[:id])
         authorize?(@menu.restaurant.user_id)
         @menu.destroy
-        redirect_to menus_path
+        redirect_to restaurant_path(@menu.restaurant)
     end
 
     def menu_params

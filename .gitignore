@@ -39,6 +39,9 @@
 # Ignore notes.
 /notes.txt
 
+# Ignore dotenv environment variable file.
+*.env
+
 /public/packs
 /public/packs-test
 /node_modules

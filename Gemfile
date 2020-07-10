@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use OmniAuth for OAuth sign in
 gem 'omniauth'
 gem 'omniauth-facebook'
+# Use dotenv-rails to securely store and load environment variables
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

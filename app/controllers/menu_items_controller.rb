@@ -8,7 +8,7 @@ class MenuItemsController < ApplicationController
     
     def create
         @menu_item = MenuItem.new(menu_item_params)
-        @menu_item.menu_id = params[:menu_id]
+        @menu_item.menu_id = params[:menu_id] || params[:menu_item][:menu_id] #Different nested routes have different param hash structures
         authorize?(@menu_item.menu.restaurant.user_id)
         if !@menu_item.valid?
             return render :new
@@ -41,7 +41,6 @@ class MenuItemsController < ApplicationController
     def update
         @menu_item = MenuItem.find(params[:id])
         authorize?(@menu_item.menu.restaurant.user_id)
-        byebug
         if !@menu_item.update(menu_item_params)
             return render :edit
         else
@@ -53,7 +52,7 @@ class MenuItemsController < ApplicationController
         @menu_item = MenuItem.find(params[:id])
         authorize?(@menu_item.menu.restaurant.user_id)
         @menu_item.destroy
-        redirect_to user_menu_items_path(@menu_item.menu.restaurant.user)
+        redirect_to menu_path(@menu_item.menu)
     end
 
     def menu_item_params
