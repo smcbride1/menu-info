@@ -16,6 +16,7 @@
 <h2>📞 <%= link_to @restaurant.phone_number, "tel:#{@restaurant.phone_number}" %></h2>
 <h2>📍 <%= link_to @restaurant.address, "https://maps.google.com/?q=#{@restaurant.address}", target: :_blank %></h2>
 
+<br>
 <div class="wrapper">
     <!-- Google Maps Embed -->
     <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=<%= u @restaurant.address %>&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
@@ -30,14 +31,13 @@
     <div class="wrapper">
         <a href="<%= new_restaurant_menu_path(@restaurant) %>"><button>New Menu</button></a>
     </div>
-    
-    <br>
-    <% if @restaurant.menus.any? %>
-        <% @restaurant.menus.each do |menu| %>
-            <h1><%= link_to menu.name, menu %></h1>
-            <h2><%= truncate(menu.description, length: 20) %></h2>
-        <% end %>
-    <% else %>
-        <h2>There are currently no menus.</h2>
+<% end %>
+<br>
+<% if @restaurant.menus.any? %>
+    <% @restaurant.menus.each do |menu| %>
+        <h1><%= link_to menu.name, menu %></h1>
+        <h2><%= truncate(menu.description, length: 20) %></h2>
     <% end %>
+<% else %>
+    <h2>There are currently no menus.</h2>
 <% end %>

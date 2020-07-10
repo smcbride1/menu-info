@@ -1,4 +1,5 @@
 <h1><%= @menu.name %></h1>
+<h2><%= link_to "🏨 #{@menu.restaurant.name}", @menu.restaurant %></h2>
 
 <% if @menu.restaurant.user == current_user %>
     <br>
@@ -11,8 +12,7 @@
     <br>
 <% end %>
 
-<h2><%= @menu.description %></h2>
-<h2><%= link_to @menu.restaurant.name, @menu.restaurant %></h2>
+<h3><%= @menu.description %></h3>
 
 <br>
 <h1><%= link_to "Menu Items", menu_menu_items_path(@menu) %></h1>
