@@ -25,13 +25,35 @@ Specs:
     * Tag has_many Menus through MenuItems (menu_item.name)
 
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+    * Validates presence, length, range, numericality, email (URI validator)
+    
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+    * menu_items.dollar_menu
+    * menu_items.under_five
+    * menu_items.under_ten
+    * menu_items.under_twenty
+
 - [x] Include signup (how e.g. Devise)
+    * get /register
+
 - [x] Include login (how e.g. Devise)
+    * get /login
+
 - [x] Include logout (how e.g. Devise)
+    * post /logout
+
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
+    * Facebook OAuth
+
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
+    * restaurants/1/menus
+    * restaurants/1/menus/1
+    * menus/1/menu_items
+    * menus/1/menu_items/1
+
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+    * restaurants/1/menus/new
+
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:

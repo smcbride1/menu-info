@@ -43,5 +43,7 @@ Rails.application.routes.draw do
   get "register", to: "users#new"
   post "register", to: "users#create"
 
+  get "about", to: "application#about"
+
   root "application#index"
 end

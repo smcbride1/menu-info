@@ -35,8 +35,12 @@
 <br>
 <% if @restaurant.menus.any? %>
     <% @restaurant.menus.each do |menu| %>
-        <h1><%= link_to menu.name, menu %></h1>
-        <h2><%= truncate(menu.description, length: 20) %></h2>
+        <div class="card">
+            <div class="container">
+                <h1><%= link_to menu.name, menu %></h1>
+                <h2><%= truncate(menu.description, length: 20) %></h2>
+            </div>
+        </div>
     <% end %>
 <% else %>
     <h2>There are currently no menus.</h2>

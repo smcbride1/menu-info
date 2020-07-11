@@ -1,5 +1,4 @@
 <h1><%= @menu.name %></h1>
-<h2><%= link_to "🏨 #{@menu.restaurant.name}", @menu.restaurant %></h2>
 
 <% if @menu.restaurant.user == current_user %>
     <br>
@@ -13,8 +12,10 @@
 <% end %>
 
 <h3><%= @menu.description %></h3>
+<h2><%= link_to "🏨 #{@menu.restaurant.name}", @menu.restaurant %></h2>
 
-<br>
+<hr>
+
 <h1><%= link_to "Menu Items", menu_menu_items_path(@menu) %></h1>
 
 <% if @menu.restaurant.user == current_user %>
@@ -25,11 +26,15 @@
 <% end %>
 <br>
 <% if @menu.menu_items.any? %>
-    <% @menu.menu_items.each do |menu_item| %>
-        <h1><%= link_to menu_item.name, menu_item %></h1>
-        <h1><%= "$#{menu_item.price}" %></h1>
-        <h2><%= truncate(menu_item.description, length: 20) %></h2>
-    <% end %>
+    <div class="card">
+        <div class="container">
+            <% @menu.menu_items.each do |menu_item| %>
+                <h1><%= link_to menu_item.name, menu_item %></h1>
+                <h1><%= "$#{menu_item.price}" %></h1>
+                <h2><%= truncate(menu_item.description, length: 20) %></h2>
+            <% end %>
+        </div>
+    </div>
 <% else %>
     <h2>There are currently no menu items.</h2>
 <% end %>

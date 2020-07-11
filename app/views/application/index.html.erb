@@ -20,7 +20,13 @@
 
 <br>
 
-<div class="wrapper">
-    <a href="/login"><button>Login</button></a>
-    <a href="/register"><button>Register</button></a>
-</div>
+<% if !logged_in? %>
+    <div class="wrapper">
+        <a href="/login"><button>Login</button></a>
+        <a href="/register"><button>Register</button></a>
+    </div>
+<% else %>
+    <div class="wrapper">
+        <a href="<%= new_menu_path %>"><button>Create Menus</button></a>
+    </div>
+<% end %>
