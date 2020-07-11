@@ -24,6 +24,8 @@ class MenuItemsController < ApplicationController
             #@menu_items = MenuItem.where(tag_id: params[:tag_id])
         elsif params.has_key?(:menu_id)
             @menu_items = MenuItem.where(menu_id: params[:menu_id])
+        elsif params.has_key?(:user_id)
+            @menu_items = User.find(params[:user_id]).menu_items
         else
             @menu_items = MenuItem.all
         end

@@ -5,7 +5,12 @@
         <a href="<%= new_menu_path %>"><button>New Menu</button></a>
     </div>
 <% end %>
-<% @menus.each do |menu| %>
-    <h1><%= link_to menu.name, menu %></h1>
-    <h2><%= truncate(menu.description, length: 20) %></h2>
-<% end %>
+<br>
+<div class="card">
+    <div class="container">
+        <% @menus.each do |menu| %>
+            <h1><%= link_to menu.name, menu %></h1>
+            <h2><%= truncate(menu.description, length: 20) %></h2>
+        <% end %>
+    </div>
+</div>

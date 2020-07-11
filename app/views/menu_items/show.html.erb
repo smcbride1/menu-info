@@ -1,7 +1,8 @@
 <h1><%= @menu_item.name %></h1>
 
+<br>
+
 <% if @menu_item.menu.restaurant.user == current_user %>
-    <br>
     <div class="wrapper">
         <a href="<%= edit_menu_item_path(@menu_item) %>"><button>Edit</button></a>
         <%= form_for @menu_item, html: { method: :delete } do |f| %>
@@ -11,9 +12,15 @@
     <br>
 <% end %>
 
-<% @menu_item.tags.each do |tag| %>
-    <h2><%= link_to tag.name, tag_path(tag) %></h2>
+<% if @menu_item.tags.any? %>
+    <div class="wrapper">
+        <% @menu_item.tags.each do |tag| %>
+            <a href="<%= tag_path(tag) %>"><button class="tag"><%= tag.name %></button></a>
+        <% end %>
+    </div>
+    <br>
 <% end %>
+
 <h2><%= "$#{@menu_item.price}" %></h2>
 <h2><%= @menu_item.description %></h2>
 <h2><%= link_to @menu_item.menu.name, @menu_item.menu %></h2>

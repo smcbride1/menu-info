@@ -204,3 +204,7 @@
     display: block;
     text-align: center;
  }
+
+ .tag {
+   background-color: #ff9101;
+ }

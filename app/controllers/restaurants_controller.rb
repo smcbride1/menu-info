@@ -18,8 +18,8 @@ class RestaurantsController < ApplicationController
     end
 
     def index
-        if params.has_key?(:user)
-            @restaurants = Restaurant.where(user_id: params[:user][:id])
+        if params.has_key?(:user_id)
+            @restaurants = User.find(params[:user_id]).restaurants
         else
             @restaurants = Restaurant.all
         end

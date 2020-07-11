@@ -23,6 +23,8 @@ class MenusController < ApplicationController
             @menus = Menu.where(menu_type_id: params[:menu_type_id])
         elsif params.has_key?(:restaurant_id)
             @menus = Menu.where(restaurant_id: params[:restaurant_id])
+        elsif params.has_key?(:user_id)
+            @menus = User.find(params[:user_id]).menus
         else
             @menus = Menu.all
         end
