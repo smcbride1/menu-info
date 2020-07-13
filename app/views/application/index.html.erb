@@ -5,7 +5,7 @@
 <br>
 
 <div class="wrapper">
-    <%= form_tag "/", method: :get %>
+    <%= form_tag "/search", method: :get %>
     <% placeholder = ["Find Gluten-free Dishes...", "Find Vegan Dishes...", "Find Drink Menus...", "Find Dessert Menus...", "Find Top Restaurants..."].sample %>
     <%= text_field_tag :query, nil, placeholder: placeholder %>
     <%= submit_tag "Search" %>

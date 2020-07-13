@@ -1,0 +1,22 @@
+<div class="wrapper">
+<%= form_tag "/search", method: :get %>
+<% placeholder = "Search..." %>
+<%= text_field_tag :query, nil, placeholder: placeholder %>
+<%= submit_tag "Search" %>
+</div>
+<h1>Results:</h1>
+<hr>
+<h1>Restaurants</h1>
+<% @restaurant_results.each do |result| %>
+    <h2><%= link_to result.name, result %></h2>
+<% end %>
+<hr>
+<h1>Menus</h1>
+<% @menu_results.each do |result| %>
+    <h2><%= link_to result.name, result %></h2>
+<% end %>
+<hr>
+<h1>Menu Items</h1>
+<% @menu_item_results.each do |result| %>
+    <h2><%= link_to result.name, result %></h2>
+<% end %>
