@@ -1,22 +1,31 @@
 <div class="wrapper">
 <%= form_tag "/search", method: :get %>
 <% placeholder = "Search..." %>
-<%= text_field_tag :query, nil, placeholder: placeholder %>
+<%= text_field_tag :query, nil, placeholder: placeholder, value: @query %>
 <%= submit_tag "Search" %>
 </div>
 <h1>Results:</h1>
-<hr>
-<h1>Restaurants</h1>
-<% @restaurant_results.each do |result| %>
-    <h2><%= link_to result.name, result %></h2>
+<% if !@restaurant_results.any? && !@menu_results.any? && !@menu_item_results.any? %>
+    <h2>No Results for '<%= @query %>'</h2>
 <% end %>
-<hr>
-<h1>Menus</h1>
-<% @menu_results.each do |result| %>
-    <h2><%= link_to result.name, result %></h2>
+<% if @restaurant_results.any? %>
+    <hr>
+    <h1>🏨 Restaurants</h1>
+    <% @restaurant_results.each do |result| %>
+        <h2><%= link_to result.name, result %></h2>
+    <% end %>
 <% end %>
-<hr>
-<h1>Menu Items</h1>
-<% @menu_item_results.each do |result| %>
-    <h2><%= link_to result.name, result %></h2>
+<% if @menu_results.any? %>
+    <hr>
+    <h1>📃 Menus</h1>
+    <% @menu_results.each do |result| %>
+        <h2><%= link_to result.name, result %></h2>
+    <% end %>
+<% end %>
+<% if @menu_item_results.any? %>
+    <hr>
+    <h1>🍴 Menu Items</h1>
+    <% @menu_item_results.each do |result| %>
+        <h2><%= link_to result.name, result %></h2>
+    <% end %>
 <% end %>

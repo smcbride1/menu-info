@@ -25,16 +25,17 @@
     </div>
 <% end %>
 <br>
-<% if @menu.menu_items.any? %>
-    <div class="card">
-        <div class="container">
+<div class="card">
+    <div class="container">
+        <% if @menu.menu_items.any? %>
             <% @menu.menu_items.each do |menu_item| %>
                 <h1><%= link_to menu_item.name, menu_item %></h1>
                 <h1><%= "$#{menu_item.price}" %></h1>
-                <h2><%= truncate(menu_item.description, length: 20) %></h2>
+                <h2><%= truncate(menu_item.description, length: 30) %></h2>
+                <br>
             <% end %>
-        </div>
+        <% else %>
+            <h2>There are currently no menu items.</h2>
+        <% end %>
     </div>
-<% else %>
-    <h2>There are currently no menu items.</h2>
-<% end %>
+</div>

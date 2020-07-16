@@ -28,6 +28,10 @@
     text-decoration: none;
     color: #4D4D4D;
  }
+
+ a:hover {
+    opacity: 50%;
+ }
  
  .nav__links li {
     text-decoration: none;
@@ -91,14 +95,15 @@
     text-align: center;
 }
 
- input[type=text], input[type=password] {
+ input[type=text], input[type=password], select {
     width: 400px;
     height: 40px;
     border-radius: 50px;
     font-size: 16pt;
-    padding: 10px;
+    padding: 0px 10px;
     border-color: #4D4D4D;
     align-self: center;
+    border-width: 2px;
  }
 
  input[type=text], input[type=password], select {
@@ -164,10 +169,6 @@
     transition: 0.3s;
     width: 40%;
     overflow: hidden;
- }
- 
- .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
  }
  
  .container {

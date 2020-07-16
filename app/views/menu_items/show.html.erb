@@ -21,7 +21,7 @@
     <br>
 <% end %>
 
+<h3><%= @menu_item.description %></h3>
 <h2><%= "$#{@menu_item.price}" %></h2>
-<h2><%= @menu_item.description %></h2>
-<h2><%= link_to @menu_item.menu.name, @menu_item.menu %></h2>
-<h2><%= link_to @menu_item.menu.restaurant.name, @menu_item.menu.restaurant %></h2>
+<h2>📃 <%= link_to @menu_item.menu.name, @menu_item.menu %></h2>
+<h2>🏨 <%= link_to @menu_item.menu.restaurant.name, @menu_item.menu.restaurant %></h2>

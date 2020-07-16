@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
                 u.email = auth["info"]["email"]
                 u.password = SecureRandom.hex
             end
-            if @user.valid?
-                session[:user_id] = @user.id
-                redirect_to user_restaurants_path(@user)
-            else
-                flash[:warning] = "Something went wrong. Please make sure that you don't already have an account with this account's email address."
-                redirect_to "/login"
-            end
+            session[:user_id] = @user.id
+            redirect_to user_restaurants_path(@user)
+            # else
+            #     flash[:warning] = "Something went wrong. Please make sure that you don't already have an account with this account's email address."
+            #     redirect_to "/login"
+            # end
         else
             @user = User.find_by(email: params[:email])
             if @user && @user.authenticate(params[:password])

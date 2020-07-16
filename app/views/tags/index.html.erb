@@ -1,4 +1,15 @@
 <h1>Tags</h1>
-<% @tags.each do |tag| %>
-    <h2><%= link_to tag.name, tag_path(tag) %></h2>
-<% end %>
+<br>
+
+<div class="card">
+    <div class="container">
+        <% if @tags.any? %>
+            <% @tags.each do |tag| %>
+                <h1><%= link_to tag.name, tag_path(tag) %></h1>
+                <br>
+            <% end %>
+        <% else %>
+            <h2>There are currently no tags.</h2>
+        <% end %>
+    </div>
+</div>

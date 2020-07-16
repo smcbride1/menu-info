@@ -8,9 +8,14 @@
 <br>
 <div class="card">
     <div class="container">
-        <% @menus.each do |menu| %>
-            <h1><%= link_to menu.name, menu %></h1>
-            <h2><%= truncate(menu.description, length: 20) %></h2>
+        <% if @menus.any? %>
+            <% @menus.each do |menu| %>
+                <h1><%= link_to menu.name, menu %></h1>
+                <h2><%= truncate(menu.description, length: 30) %></h2>
+                <br>
+            <% end %>
+        <% else %>
+            <h2>There are currently no menus.</h2>
         <% end %>
     </div>
 </div>

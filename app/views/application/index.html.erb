@@ -5,6 +5,13 @@
 <br>
 
 <div class="wrapper">
+    <% Tag.all.sample(4).each do |tag| %>
+        <a href="<%= tag_path(tag) %>"><button class="tag"><%= tag.name %></button></a>
+    <% end %>
+    <a href="<%= tags_path %>"><button>All Tags</button></a>
+
+    <br>
+
     <%= form_tag "/search", method: :get %>
     <% placeholder = ["Find Gluten-free Dishes...", "Find Vegan Dishes...", "Find Drink Menus...", "Find Dessert Menus...", "Find Top Restaurants..."].sample %>
     <%= text_field_tag :query, nil, placeholder: placeholder %>

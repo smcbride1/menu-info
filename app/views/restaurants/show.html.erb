@@ -33,15 +33,16 @@
     </div>
 <% end %>
 <br>
-<% if @restaurant.menus.any? %>
-    <% @restaurant.menus.each do |menu| %>
-        <div class="card">
-            <div class="container">
+<div class="card">
+    <div class="container">
+        <% if @restaurant.menus.any? %>
+            <% @restaurant.menus.each do |menu| %>
                 <h1><%= link_to menu.name, menu %></h1>
-                <h2><%= truncate(menu.description, length: 20) %></h2>
-            </div>
-        </div>
-    <% end %>
-<% else %>
-    <h2>There are currently no menus.</h2>
-<% end %>
+                <h2><%= truncate(menu.description, length: 30) %></h2>
+                <br>
+            <% end %>
+        <% else %>
+            <h2>There are currently no menus.</h2>
+        <% end %>
+    </div>
+</div>
