@@ -5,27 +5,27 @@
 <%= submit_tag "Search" %>
 </div>
 <h1>Results:</h1>
-<% if !@restaurant_results.any? && !@menu_results.any? && !@menu_item_results.any? %>
+<% if !@results["restaurant_results"].any? && !@results["menu_results"].any? && !@results["menu_item_results"].any? %>
     <h2>No Results for '<%= @query %>'</h2>
 <% end %>
-<% if @restaurant_results.any? %>
+<% if @results["restaurant_results"].any? %>
     <hr>
     <h1>🏨 Restaurants</h1>
-    <% @restaurant_results.each do |result| %>
+    <% @results["restaurant_results"].each do |result| %>
         <h2><%= link_to result.name, result %></h2>
     <% end %>
 <% end %>
-<% if @menu_results.any? %>
+<% if @results["menu_results"].any? %>
     <hr>
     <h1>📃 Menus</h1>
-    <% @menu_results.each do |result| %>
+    <% @results["menu_results"].each do |result| %>
         <h2><%= link_to result.name, result %></h2>
     <% end %>
 <% end %>
-<% if @menu_item_results.any? %>
+<% if @results["menu_item_results"].any? %>
     <hr>
     <h1>🍴 Menu Items</h1>
-    <% @menu_item_results.each do |result| %>
+    <% @results["menu_item_results"].each do |result| %>
         <h2><%= link_to result.name, result %></h2>
     <% end %>
 <% end %>

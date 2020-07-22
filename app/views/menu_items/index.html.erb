@@ -4,6 +4,14 @@
     <div class="wrapper">
         <a href="<%= new_menu_item_path %>"><button>New Menu Item</button></a>
     </div>
+<% else %>
+<br>
+    <div class="wrapper">
+        <a href="<%= "/menu_items/dollar_menu" %>"><button class="tag">Dollar Menu</button></a>
+        <a href="<%= "/menu_items/under_five" %>"><button class="tag">Under $5</button></a>
+        <a href="<%= "/menu_items/under_ten" %>"><button class="tag">Under $10</button></a>
+        <a href="<%= "/menu_items/under_twenty" %>"><button class="tag">Under $20</button></a>
+    </div>
 <% end %>
 <br>
 <div class="card">
