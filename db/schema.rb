@@ -12,19 +12,22 @@
 
 ActiveRecord::Schema.define(version: 2020_07_10_091802) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
     t.text "description"
-    t.integer "menu_id"
+    t.bigint "menu_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["menu_id"], name: "index_menu_items_on_menu_id"
   end
 
   create_table "menu_items_tags", id: false, force: :cascade do |t|
-    t.integer "menu_item_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "menu_item_id", null: false
+    t.bigint "tag_id", null: false
   end
 
   create_table "menu_types", force: :cascade do |t|
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_10_091802) do
   create_table "menus", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "restaurant_id"
+    t.bigint "restaurant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_07_10_091802) do
     t.string "website"
     t.string "phone_number"
     t.string "address"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_restaurants_on_user_id"
